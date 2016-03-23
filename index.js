@@ -1,17 +1,9 @@
 module.exports = leftpad;
 
 function leftpad (str, len, ch) {
-  str = String(str);
+  if (typeof(ch)=='undefined') ch = ' ';
 
-  var i = -1;
-
-  if (!ch && ch !== 0) ch = ' ';
-
-  len = len - str.length;
-
-  while (++i < len) {
-    str = ch + str;
-  }
+  while (String(str).length < len-1) str = ch + str;
 
   return str;
 }
