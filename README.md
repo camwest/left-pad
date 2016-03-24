@@ -18,7 +18,7 @@ leftpad = require('left-pad')
 leftpad('foo', 5)
 // => "  foo"
 
-leftpad('foobar', 6)
+leftpad('foobar', 5)
 // => "foobar"
 
 leftpad(1, 2, 0)

@@ -1,17 +1,8 @@
-module.exports = leftpad;
+'use strict';
 
-function leftpad (str, len, ch) {
-  str = String(str);
-
-  var i = -1;
-
-  if (!ch && ch !== 0) ch = ' ';
-
-  len = len - str.length;
-
-  while (++i < len) {
-    str = ch + str;
-  }
-
-  return str;
-}
+module.exports = function(str, len, ch) {
+  ch = ch === undefined ? ' ' : ch;
+  return str.length >= len ? str :
+    (new Array(len + 1).join(ch) + str)
+      .slice(-len);
+};
