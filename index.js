@@ -6,9 +6,10 @@ var cache = ['', ' ', '  ', '   ', '    ', '     '];
 
 function leftpad(str, len, ch) {
 
+  var n = len - str.length;
   if (!ch && ch !== 0) ch = ' ';
 
-  var n = len - str.length;
+  if(n <= 0) return String(str);
   if(ch === ' ' && n <= 5) return cache[n] + String(str);
   var r = "";
   while (true) {
