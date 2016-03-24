@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = leftpad;
 
 function leftpad(str, len, ch) {
