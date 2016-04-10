@@ -19,7 +19,7 @@ function lp (str, len, ch) {
     return lp(str,len,' ');
   }
   str = String(str);
-  var padLen = (len-str.length)-1;
+  var padLen = (len-str.length);
   var padCount = Math.floor(padLen/ch.length);
   if((ch.length % padLen)==0) {
     return (treePad(ch, padCount)+str);
