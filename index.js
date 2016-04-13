@@ -1,17 +1,21 @@
+"use strict";
+
 module.exports = leftpad;
 
-function leftpad (str, len, ch) {
-  str = String(str);
+var cache = ['', ' ', '  ', '   ', '    ', '     '];
 
-  var i = -1;
+function leftpad(str, len, ch) {
 
+  var n = len - str.length;
   if (!ch && ch !== 0) ch = ' ';
 
-  len = len - str.length;
-
-  while (++i < len) {
-    str = ch + str;
+  if(n <= 0) return String(str);
+  if(ch === ' ' && n <= 5) return cache[n] + String(str);
+  var r = "";
+  while (true) {
+    if (n & 1) r += ch;
+    n >>= 1;
+    if (n === 0) return r + String(str);
+    ch += ch;
   }
-
-  return str;
 }
